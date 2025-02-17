@@ -40,8 +40,8 @@ class LoginByLinkController extends BaseApiController
      */
     public function login(Request $request, string $hash)
     {
-        $tokenRepo = app()->make('App\Repositories\TokenRepository');
-        $token = $tokenRepo->check('verify', 'App\Models\Customer', $hash);
+        $tokenRepo = app()->make(\App\Repositories\TokenRepository::class);
+        $token = $tokenRepo->check('verify', \App\Models\Customer::class, $hash);
 
         $message = null;
 

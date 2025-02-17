@@ -43,7 +43,7 @@ class PasswordResetRequestController extends BaseApiController
     {   
         $user = $this->customerService->findByEmailAndWebsite($email, $websiteId ? $websiteId : $this->domain->website_id);
         if ($user) {
-            $token = $this->generateTokenService->generate('verify', 'App\Models\User', $user->id, 6, 30, 'password_reset');
+            $token = $this->generateTokenService->generate('verify', \App\Models\User::class, $user->id, 6, 30, 'password_reset');
         
             $user->notify(new PasswordResetNotification([
                 "fullUsername" => $user->name,

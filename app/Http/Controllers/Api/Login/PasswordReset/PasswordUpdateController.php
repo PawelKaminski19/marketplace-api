@@ -42,8 +42,8 @@ class PasswordUpdateController extends BaseApiController
      */
     public function update(UpdatePasswordRequest $request, string $hash)
     {     
-        $tokenRepo = app()->make('App\Repositories\TokenRepository');
-        $token = $tokenRepo->check('verify', 'App\Models\User', $hash);
+        $tokenRepo = app()->make(\App\Repositories\TokenRepository::class);
+        $token = $tokenRepo->check('verify', \App\Models\User::class, $hash);
 
         $message = null;
 

@@ -46,8 +46,8 @@ class SendVerificationCodeController extends BaseApiController
      */
     public function send(string $hash)
     {  
-        $tokenRepo = app()->make('App\Repositories\TokenRepository');
-        $token = $tokenRepo->check('verify', 'App\Models\Customer', $hash);
+        $tokenRepo = app()->make(\App\Repositories\TokenRepository::class);
+        $token = $tokenRepo->check('verify', \App\Models\Customer::class, $hash);
        
             $message = null;
 

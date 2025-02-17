@@ -43,7 +43,7 @@ class SendLinkController extends BaseApiController
         if ($user) {
             $customer = $user->customers->where('website_id', $websiteId)->first();
 
-            $token = $this->generateTokenService->generate('verify', 'App\Models\Customer', $customer->id, 6, 30, 'verify_login');
+            $token = $this->generateTokenService->generate('verify', \App\Models\Customer::class, $customer->id, 6, 30, 'verify_login');
         
             $user->notify(new SendLoginLinkMailNotification([
                 "fullUsername" => $customer->firstname . " " . $customer->lastname,
