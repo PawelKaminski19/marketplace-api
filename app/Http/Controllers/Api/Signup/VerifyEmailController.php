@@ -45,8 +45,8 @@ class VerifyEmailController extends BaseApiController
         }
 
         if ($guest) {
-            $tokenRepo = app()->make('App\Repositories\TokenRepository');
-            $token = $tokenRepo->check('verify_email', 'App\Models\Guest', $request->input('hash'));
+            $tokenRepo = app()->make(\App\Repositories\TokenRepository::class);
+            $token = $tokenRepo->check('verify_email', \App\Models\Guest::class, $request->input('hash'));
 
             $message = null;
 

@@ -147,7 +147,7 @@ class Generic
         $endpoint = 'https://api.github.com/repos/'.self::GITHUB_USER.'/'.$repo.'/zipball/master';
 
         $ch = curl_init($endpoint);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: token '.self::GITHUB_TOKEN, 'User-Agent: RepoDownloader'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: token '.self::GITHUB_TOKEN, 'User-Agent: RepoDownloader']);
         curl_setopt($ch, CURLOPT_HEADER, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 

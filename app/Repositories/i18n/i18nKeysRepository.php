@@ -21,7 +21,7 @@ class i18nKeysRepository extends BaseRepository
         return $this;
     }
 
-    public function all($columns = array('*'))
+    public function all($columns = ['*'])
     {
         return $this->allQuery()->get();
     }

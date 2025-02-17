@@ -83,7 +83,7 @@ class GuestRepository extends BaseRepository
      */
     public function upgradeGuestToUser($guest)
     {
-        $token = Token::where('model', '=', 'App\Models\Guest')
+        $token = Token::where('model', '=', \App\Models\Guest::class)
             ->where('model_id', '=', $guest->id)
             ->where('method', '=', 'verify_email')
             ->where('used', '=', 1)

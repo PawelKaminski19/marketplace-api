@@ -107,7 +107,7 @@ class GuestApiController extends BaseApiController
         }
 
         if ($guest) {
-            $token = $this->tokenRepository->generate('verify_email', 'App\Models\Guest', $guest->id);
+            $token = $this->tokenRepository->generate('verify_email', \App\Models\Guest::class, $guest->id);
 
             if ($token['token']) {
                 try {
@@ -144,7 +144,7 @@ class GuestApiController extends BaseApiController
         if ($uuid) {
             $guest = $this->guestService->findByUuid($uuid);
             if ($guest) {
-                $token = $this->tokenRepository->generate('verify_email', 'App\Models\Guest', $guest->id);
+                $token = $this->tokenRepository->generate('verify_email', \App\Models\Guest::class, $guest->id);
 
                 if ($token['token']) {
                     $guest->notify(new GuestMailVerifyNotification([
